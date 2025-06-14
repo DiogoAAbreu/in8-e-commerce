@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo para o Pedido (a compra em si)
+model Order {
+  id        String      @id @default(cuid())
+  createdAt DateTime    @default(now())
+  total     Int
+  items     OrderItem[] // Um pedido tem vários itens
+}
+
+// Modelo para os Itens do Pedido
+model OrderItem {
+  id          String  @id @default(cuid())
+  productId   String // ID do produto da API externa (ex: "br_1")
+  name        String // "Snapshot" do nome do produto no momento da compra
+  price       Int // "Snapshot" do preço no momento da compra
+  quantity    Int
+  order       Order   @relation(fields: [orderId], references: [id])
+  orderId     String
+}
