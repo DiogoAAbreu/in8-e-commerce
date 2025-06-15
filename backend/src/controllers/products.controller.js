@@ -1,4 +1,4 @@
-import { fetchAllProducts } from '../services/provider.service.js';
+import { fetchAllProducts, fetchProductById } from '../services/provider.service.js';
 
 export const getAllProducts = async (req, res) => {
     try {
@@ -26,5 +26,22 @@ export const getAllProducts = async (req, res) => {
         console.error("Erro no controller ao buscar produtos:", error);
 
         res.status(500).json({ message: "Erro interno ao buscar os produtos." });
+    }
+};
+
+export const getProductById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const product = await fetchProductById(id);
+
+        if (product) {
+            res.status(200).json(product);
+        } else {
+            res.status(404).json({ message: "Produto não encontrado." });
+        }
+    } catch (error) {
+        console.error(`Erro no controller ao buscar produto com ID ${req.params.id}:`, error);
+
+        res.status(500).json({ message: "Erro interno ao buscar o produto." });
     }
 };
