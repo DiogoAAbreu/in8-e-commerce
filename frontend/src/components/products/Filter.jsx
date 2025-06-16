@@ -15,7 +15,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 type="radio"
                                 name="origin"
                                 value={"all"}
-                                onClick={handleOriginChange}
+                                onChange={handleOriginChange}
                                 checked={selectedOrigin === "all"}
                                 className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Todos</span>
@@ -25,7 +25,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 type="radio"
                                 name="origin"
                                 value={"br"}
-                                onClick={handleOriginChange}
+                                onChange={handleOriginChange}
                                 checked={selectedOrigin === "br"}
                                 className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Fornecedor Brasileiro 🇧🇷</span>
