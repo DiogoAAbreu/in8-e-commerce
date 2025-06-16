@@ -17,7 +17,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 value={"all"}
                                 onClick={handleOriginChange}
                                 checked={selectedOrigin === "all"}
-                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                                className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Todos</span>
                         </label>
                         <label className="flex items-center">
@@ -27,7 +27,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 value={"br"}
                                 onClick={handleOriginChange}
                                 checked={selectedOrigin === "br"}
-                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                                className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Fornecedor Brasileiro 🇧🇷</span>
                         </label>
                         <label className="flex items-center">
@@ -37,7 +37,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 value={"eu"}
                                 onChange={handleOriginChange}
                                 checked={selectedOrigin === "eu"}
-                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                                className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Fornecedor Europeu 🇪🇺</span>
                         </label>
                         <label className="flex items-center">
@@ -47,7 +47,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 value={"discount"}
                                 onChange={handleOriginChange}
                                 checked={selectedOrigin === "discount"}
-                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                                className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Produtos com desconto 🏷️</span>
                         </label>
                     </div>
