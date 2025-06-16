@@ -1,3 +1,5 @@
+import formatCurrency from "../../utils/formatCurrency";
+
 export default function ProductCard({ product }) {
     const {
         name,
@@ -8,10 +10,8 @@ export default function ProductCard({ product }) {
         origin,
     } = product;
 
-    const formattedValue = String((price / 100).toFixed(2)).replace('.', ',');
-
-    const formattedValueWithDiscount = String(((price / 100) - (discountValue / 100)).toFixed(2)).replace('.', ',');
-
+    const formattedValue = formatCurrency(price);
+    const formattedValueWithDiscount = formatCurrency(price, discountValue);
 
     return (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden transform hover:scale-105 transition-transform duration-300">
