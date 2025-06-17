@@ -1,9 +1,17 @@
-export default function ProductGrid({ children }) {
+import Spinner from "../common/Spinner";
+
+export default function ProductGrid({ children, isLoading, error }) {
     return (
         <section className="w-full md:w-3/4 lg:w-4/5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {children}
-            </div>
+            {error &&
+                <span className="text-2xl font-bold w-full h-full flex justify-center items-center text-gray-600 text-center">
+                    {error}
+                </span>}
+            {isLoading ?
+                <Spinner /> :
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {children}
+                </div>}
         </section>
     )
 }

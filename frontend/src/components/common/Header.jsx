@@ -2,7 +2,7 @@ import ProductCart from "../products/ProductCart";
 import SearchBar from "../products/SearchBar";
 
 export default function Header({
-    quantityProducts
+    productsAddedToCart
 }) {
     return (
         <header className="bg-white shadow-sm sticky top-0 z-20">
@@ -11,7 +11,7 @@ export default function Header({
                     in8 <span className="hidden md:block ml-2"> e-Commerce</span>
                 </h1>
                 <SearchBar />
-                <ProductCart quantityProducts={quantityProducts} />
+                <ProductCart productsAddedToCart={productsAddedToCart} />
             </div>
         </header>
     )
