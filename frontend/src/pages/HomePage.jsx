@@ -4,7 +4,6 @@ import Filter from "../components/products/Filter";
 import ProductGrid from "../components/products/ProductGrid";
 import ProductCard from "../components/products/ProductCard";
 import { useProducts } from "../hooks/useProducts";
-import Spinner from "../components/common/Spinner";
 
 export default function HomePage() {
     const [productsAddedToCart, setProductsAddedToCart] = useState([]);
@@ -23,7 +22,7 @@ export default function HomePage() {
     return (
         <>
             <Header
-                quantityProducts={productsAddedToCart.length} />
+                productsAddedToCart={productsAddedToCart} />
             <main className="container mx-auto px-4 lg:px-8 py-8">
                 <div className="flex flex-col md:flex-row gap-8">
                     <Filter
