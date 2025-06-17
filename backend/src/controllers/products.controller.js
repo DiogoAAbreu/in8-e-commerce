@@ -2,7 +2,13 @@ import { fetchAllProducts, fetchProductById } from '../services/provider.service
 
 export const getAllProducts = async (req, res) => {
     try {
-        const allProducts = await fetchAllProducts();
+        let allProducts = await fetchAllProducts();
+
+        const { filter } = req.query;
+
+        if (filter) {
+            allProducts = allProducts.filter(product => product.origin === filter)
+        }
 
         const page = parseInt(req.query.page, 10) || 1;
         const limit = 20;
