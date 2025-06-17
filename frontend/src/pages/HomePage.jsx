@@ -3,24 +3,23 @@ import Header from "../components/common/Header";
 import Filter from "../components/products/Filter";
 import ProductGrid from "../components/products/ProductGrid";
 import ProductCard from "../components/products/ProductCard";
+import { useProducts } from "../hooks/useProducts";
+import Spinner from "../components/common/Spinner";
 
 export default function HomePage() {
     const [productsAddedToCart, setProductsAddedToCart] = useState([]);
 
     const [selectedOrigin, setSelectedOrigin] = useState('todos');
 
-    const [product, setProduct] = useState({
-        id: 1,
-        name: 'teste',
-        description: 'teste descriçao',
-        imageUrl: `https://picsum.photos/seed/1/400/400`,
-        material: 'teste material',
-        adjective: 'teste aaaa',
-        hasDiscount: true,
-        price: 7000,
-        discountValue: 5,
-        origin: 'european',
-    })
+    const {
+        products,
+        isLoading,
+        error,
+        currentPage,
+        totalPages,
+        totalItems,
+        setCurrentPage } = useProducts();
+
     return (
         <>
             <Header
@@ -30,8 +29,15 @@ export default function HomePage() {
                     <Filter
                         selectedOrigin={selectedOrigin}
                         setSelectedOrigin={setSelectedOrigin} />
-                    <ProductGrid>
-                        <ProductCard product={product} />
+                    <ProductGrid
+                        isLoading={isLoading}
+                        error={error}>
+                        {products.map(product =>
+                            <ProductCard key={product.id}
+                                product={product}
+                                productsAddedToCart={productsAddedToCart}
+                                setProductsAddedToCart={setProductsAddedToCart} />
+                        )}
                     </ProductGrid>
                 </div>
             </main>

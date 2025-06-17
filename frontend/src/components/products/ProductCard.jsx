@@ -1,6 +1,6 @@
 import formatCurrency from "../../utils/formatCurrency";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, productsAddedToCart, setProductsAddedToCart }) {
     const {
         name,
         imageUrl,
@@ -12,6 +12,12 @@ export default function ProductCard({ product }) {
 
     const formattedValue = formatCurrency(price);
     const formattedValueWithDiscount = formatCurrency(price, discountValue);
+
+    function handleClick() {
+        setProductsAddedToCart([
+            ...productsAddedToCart, product
+        ])
+    }
 
     return (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden transform hover:scale-105 transition-transform duration-300">
@@ -30,7 +36,8 @@ export default function ProductCard({ product }) {
                     </>
                     :
                     <p className="mt-2 text-2xl font-bold text-gray-900">R$ {formattedValue}</p>}
-                <button className="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors cursor-pointer">
+                <button onClick={handleClick}
+                    className="mt-4 w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors cursor-pointer">
                     Adicionar ao Carrinho
                 </button>
             </div>
