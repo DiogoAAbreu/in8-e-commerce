@@ -9,7 +9,7 @@ export function getProducts(page = 1, filter = '') {
         page: page,
     };
 
-    if (origin) {
+    if (filter) {
         params.filter = filter;
     }
 
