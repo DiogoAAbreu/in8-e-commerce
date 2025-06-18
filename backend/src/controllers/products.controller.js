@@ -4,7 +4,8 @@ export const getAllProducts = async (req, res) => {
     try {
         let allProducts = await fetchAllProducts();
 
-        const { filter } = req.query;
+        const { filter, search } = req.query;
+        const page = parseInt(req.query.page, 10) || 1;
 
         if (filter) {
             if (filter === 'discount') {
@@ -12,10 +13,12 @@ export const getAllProducts = async (req, res) => {
             } else {
                 allProducts = allProducts.filter(product => product.origin === filter);
             }
-
         }
 
-        const page = parseInt(req.query.page, 10) || 1;
+        if (search) {
+            allProducts = allProducts.filter(product => product.name.toLowerCase().includes(search.toLowerCase()));
+        }
+
         const limit = 20;
 
         const startIndex = (page - 1) * limit;
