@@ -7,7 +7,12 @@ export const getAllProducts = async (req, res) => {
         const { filter } = req.query;
 
         if (filter) {
-            allProducts = allProducts.filter(product => product.origin === filter)
+            if (filter === 'discount') {
+                allProducts = allProducts.filter(product => product.hasDiscount === true);
+            } else {
+                allProducts = allProducts.filter(product => product.origin === filter);
+            }
+
         }
 
         const page = parseInt(req.query.page, 10) || 1;
