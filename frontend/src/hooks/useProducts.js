@@ -9,13 +9,14 @@ export function useProducts() {
     const [totalPages, setTotalPages] = useState(0);
     const [totalItems, setTotalItems] = useState(0);
     const [filterSelected, setFilterSelected] = useState('');
+    const [search, setSearch] = useState('');
 
-    const fetchProducts = useCallback(async (page, filter) => {
+    const fetchProducts = useCallback(async (page, filter, search) => {
         try {
             setIsLoading(true);
             setError(null);
 
-            const response = await getProducts(page, filter);
+            const response = await getProducts(page, filter, search);
 
             setProducts(response.data.data);
             setTotalPages(response.data.totalPages);
@@ -29,8 +30,8 @@ export function useProducts() {
     }, []);
 
     useEffect(() => {
-        fetchProducts(currentPage, filterSelected);
-    }, [currentPage, filterSelected, fetchProducts]);
+        fetchProducts(currentPage, filterSelected, search);
+    }, [currentPage, filterSelected, search, fetchProducts]);
 
     return {
         products,
@@ -41,6 +42,8 @@ export function useProducts() {
         filterSelected,
         setFilterSelected,
         totalItems,
-        setCurrentPage
+        setCurrentPage,
+        search,
+        setSearch,
     };
 }
