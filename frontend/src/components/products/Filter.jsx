@@ -1,6 +1,6 @@
-export default function Filter({ selectedOrigin, setSelectedOrigin }) {
+export default function Filter({ filterSelected, setFilterSelected }) {
     const handleOriginChange = (event) => {
-        setSelectedOrigin(event.target.value);
+        setFilterSelected(event.target.value);
     }
 
     return (
@@ -14,9 +14,9 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                             <input
                                 type="radio"
                                 name="origin"
-                                value={"all"}
+                                value={""}
                                 onChange={handleOriginChange}
-                                checked={selectedOrigin === "all"}
+                                checked={filterSelected === ""}
                                 className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Todos</span>
                         </label>
@@ -24,9 +24,9 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                             <input
                                 type="radio"
                                 name="origin"
-                                value={"br"}
+                                value={"brazilian"}
                                 onChange={handleOriginChange}
-                                checked={selectedOrigin === "br"}
+                                checked={filterSelected === "brazilian"}
                                 className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Fornecedor Brasileiro 🇧🇷</span>
                         </label>
@@ -34,9 +34,9 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                             <input
                                 type="radio"
                                 name="origin"
-                                value={"eu"}
+                                value={"european"}
                                 onChange={handleOriginChange}
-                                checked={selectedOrigin === "eu"}
+                                checked={filterSelected === "european"}
                                 className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Fornecedor Europeu 🇪🇺</span>
                         </label>
@@ -46,7 +46,7 @@ export default function Filter({ selectedOrigin, setSelectedOrigin }) {
                                 name="origin"
                                 value={"discount"}
                                 onChange={handleOriginChange}
-                                checked={selectedOrigin === "discount"}
+                                checked={filterSelected === "discount"}
                                 className="h-4 w-4 rounded border-gray-300 accent-purple-600 focus:ring-purple-500" />
                             <span className="ml-2 text-gray-700">Produtos com desconto 🏷️</span>
                         </label>

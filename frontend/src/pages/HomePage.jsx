@@ -8,16 +8,16 @@ import { useProducts } from "../hooks/useProducts";
 export default function HomePage() {
     const [productsAddedToCart, setProductsAddedToCart] = useState([]);
 
-    const [selectedOrigin, setSelectedOrigin] = useState('todos');
-
     const {
         products,
         isLoading,
         error,
-        currentPage,
         totalPages,
         totalItems,
-        setCurrentPage } = useProducts();
+        filterSelected,
+        setFilterSelected,
+        currentPage,
+        setCurrentPage, } = useProducts();
 
     return (
         <>
@@ -26,8 +26,8 @@ export default function HomePage() {
             <main className="container mx-auto px-4 lg:px-8 py-8">
                 <div className="flex flex-col md:flex-row gap-8">
                     <Filter
-                        selectedOrigin={selectedOrigin}
-                        setSelectedOrigin={setSelectedOrigin} />
+                        filterSelected={filterSelected}
+                        setFilterSelected={setFilterSelected} />
                     <ProductGrid
                         isLoading={isLoading}
                         error={error}>

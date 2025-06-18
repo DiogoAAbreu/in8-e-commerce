@@ -8,13 +8,14 @@ export function useProducts() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [totalItems, setTotalItems] = useState(0);
+    const [filterSelected, setFilterSelected] = useState('');
 
-    const fetchProducts = useCallback(async (page) => {
+    const fetchProducts = useCallback(async (page, filter) => {
         try {
             setIsLoading(true);
             setError(null);
 
-            const response = await getProducts(page);
+            const response = await getProducts(page, filter);
 
             setProducts(response.data.data);
             setTotalPages(response.data.totalPages);
@@ -28,8 +29,8 @@ export function useProducts() {
     }, []);
 
     useEffect(() => {
-        fetchProducts(currentPage);
-    }, [currentPage, fetchProducts]);
+        fetchProducts(currentPage, filterSelected);
+    }, [currentPage, filterSelected, fetchProducts]);
 
     return {
         products,
@@ -37,6 +38,8 @@ export function useProducts() {
         error,
         currentPage,
         totalPages,
+        filterSelected,
+        setFilterSelected,
         totalItems,
         setCurrentPage
     };
