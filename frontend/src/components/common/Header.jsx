@@ -2,7 +2,9 @@ import ProductCart from "../products/ProductCart";
 import SearchBar from "../products/SearchBar";
 
 export default function Header({
-    productsAddedToCart
+    productsAddedToCart,
+    search,
+    setSearch
 }) {
     return (
         <header className="bg-white shadow-sm sticky top-0 z-20">
@@ -10,7 +12,9 @@ export default function Header({
                 <h1 className="flex text-2xl font-bold text-purple-900 cursor-pointer transform hover:scale-105 transition-transform duration-300">
                     in8 <span className="hidden md:block ml-2"> e-Commerce</span>
                 </h1>
-                <SearchBar />
+                <SearchBar
+                    search={search}
+                    setSearch={setSearch} />
                 <ProductCart productsAddedToCart={productsAddedToCart} />
             </div>
         </header>

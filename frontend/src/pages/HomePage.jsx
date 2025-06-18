@@ -17,11 +17,16 @@ export default function HomePage() {
         filterSelected,
         setFilterSelected,
         currentPage,
-        setCurrentPage, } = useProducts();
+        setCurrentPage,
+        search,
+        setSearch
+    } = useProducts();
 
     return (
         <>
             <Header
+                search={search}
+                setSearch={setSearch}
                 productsAddedToCart={productsAddedToCart} />
             <main className="container mx-auto px-4 lg:px-8 py-8">
                 <div className="flex flex-col md:flex-row gap-8">
