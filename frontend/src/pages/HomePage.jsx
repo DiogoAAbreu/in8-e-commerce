@@ -7,7 +7,6 @@ import { useProducts } from "../hooks/useProducts";
 import Pagination from "../components/common/Pagination";
 
 export default function HomePage() {
-    const [productsAddedToCart, setProductsAddedToCart] = useState([]);
 
     const {
         products,
@@ -28,8 +27,7 @@ export default function HomePage() {
             <Header
                 showSearch={true}
                 search={search}
-                setSearch={setSearch}
-                productsAddedToCart={productsAddedToCart} />
+                setSearch={setSearch} />
             <main className="container mx-auto px-4 lg:px-8 py-8">
                 <div className="flex flex-col md:flex-row gap-8">
                     <Filter
@@ -42,8 +40,7 @@ export default function HomePage() {
                             {products.map(product =>
                                 <ProductCard key={product.id}
                                     product={product}
-                                    productsAddedToCart={productsAddedToCart}
-                                    setProductsAddedToCart={setProductsAddedToCart} />
+                                />
                             )}
                         </ProductGrid>
                         {!isLoading &&

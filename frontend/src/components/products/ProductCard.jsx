@@ -1,7 +1,9 @@
+import { useCartContext } from "../../hooks/useCartContext";
 import formatCurrency from "../../utils/formatCurrency";
 
-export default function ProductCard({ product, productsAddedToCart, setProductsAddedToCart }) {
+export default function ProductCard({ product }) {
     const {
+        id,
         name,
         imageUrl,
         hasDiscount,
@@ -10,13 +12,17 @@ export default function ProductCard({ product, productsAddedToCart, setProductsA
         origin,
     } = product;
 
+    const { addToCart } = useCartContext();
+
     const formattedValue = formatCurrency(price);
     const formattedValueWithDiscount = formatCurrency(price, discountValue);
 
     function handleClick() {
-        setProductsAddedToCart([
-            ...productsAddedToCart, product
-        ])
+        const productToAdd = {
+            ...product,
+            quantity: 1
+        }
+        addToCart(productToAdd)
     }
 
     return (
