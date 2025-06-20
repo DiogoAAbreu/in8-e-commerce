@@ -1,11 +1,12 @@
+import { fetchProductById } from "../services/provider.service.js";
+
 export const validateOrderRequest = async (req, res, next) => {
-    const { items } = req.body;
-
-    if (!items || !Array.isArray(items) || items.length === 0) {
-        return res.status(400).json({ message: "O corpo da requisição deve conter um array 'items' com pelo menos um produto." });
-    }
-
     try {
+        const { items } = req.body;
+
+        if (!items || !Array.isArray(items) || items.length === 0) {
+            return res.status(400).json({ message: "O corpo da requisição deve conter um array 'items' com pelo menos um produto." });
+        }
         for (const cartItem of items) {
             if (!cartItem.id || !cartItem.quantity || cartItem.quantity <= 0) {
                 return res.status(400).json({ message: `Item do carrinho inválido: ${JSON.stringify(cartItem)}` });
@@ -19,7 +20,7 @@ export const validateOrderRequest = async (req, res, next) => {
             const invalidProductId = items[notFoundIndex].id;
             return res.status(404).json({ message: `Produto com ID '${invalidProductId}' não foi encontrado.` });
         }
-
+        console.log(fetchedProducts)
         req.validatedProducts = fetchedProducts;
 
         next();
