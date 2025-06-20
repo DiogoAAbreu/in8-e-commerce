@@ -20,4 +20,8 @@ export function getProducts(page = 1, filter, search) {
     return api.get('/products', { params });
 }
 
+export const getProductById = (productId) => {
+    return api.get(`/products/${productId}`);
+};
+
 export default api;
