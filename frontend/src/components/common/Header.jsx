@@ -3,7 +3,6 @@ import ProductCart from "../products/ProductCart";
 import SearchBar from "../products/SearchBar";
 
 export default function Header({
-    productsAddedToCart,
     showSearch,
     search,
     setSearch
@@ -19,7 +18,7 @@ export default function Header({
                 {showSearch && <SearchBar
                     search={search}
                     setSearch={setSearch} />}
-                <ProductCart productsAddedToCart={productsAddedToCart} />
+                <ProductCart />
             </div>
         </header>
     )
