@@ -26,6 +26,7 @@ export default function HomePage() {
     return (
         <>
             <Header
+                showSearch={true}
                 search={search}
                 setSearch={setSearch}
                 productsAddedToCart={productsAddedToCart} />
