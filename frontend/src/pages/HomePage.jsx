@@ -4,6 +4,7 @@ import Filter from "../components/products/Filter";
 import ProductGrid from "../components/products/ProductGrid";
 import ProductCard from "../components/products/ProductCard";
 import { useProducts } from "../hooks/useProducts";
+import Pagination from "../components/common/Pagination";
 
 export default function HomePage() {
     const [productsAddedToCart, setProductsAddedToCart] = useState([]);
@@ -33,16 +34,28 @@ export default function HomePage() {
                     <Filter
                         filterSelected={filterSelected}
                         setFilterSelected={setFilterSelected} />
-                    <ProductGrid
-                        isLoading={isLoading}
-                        error={error}>
-                        {products.map(product =>
-                            <ProductCard key={product.id}
-                                product={product}
-                                productsAddedToCart={productsAddedToCart}
-                                setProductsAddedToCart={setProductsAddedToCart} />
-                        )}
-                    </ProductGrid>
+                    <div className="w-full">
+                        <ProductGrid
+                            isLoading={isLoading}
+                            error={error}>
+                            {products.map(product =>
+                                <ProductCard key={product.id}
+                                    product={product}
+                                    productsAddedToCart={productsAddedToCart}
+                                    setProductsAddedToCart={setProductsAddedToCart} />
+                            )}
+                        </ProductGrid>
+                        {!isLoading &&
+                            <p className="w-full text-center mt-8 text-gray-400 font-thin">
+                                {products.length} de {totalItems} produtos
+                            </p>}
+                        {(totalPages > 1 && !isLoading) &&
+                            <Pagination
+                                currentPage={currentPage}
+                                setCurrentPage={setCurrentPage}
+                                totalPages={totalPages}
+                            />}
+                    </div>
                 </div>
             </main>
         </>

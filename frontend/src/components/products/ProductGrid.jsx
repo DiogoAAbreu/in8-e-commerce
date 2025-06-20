@@ -1,8 +1,9 @@
+import Pagination from "../common/Pagination";
 import Spinner from "../common/Spinner";
 
 export default function ProductGrid({ children, isLoading, error }) {
     return (
-        <section className="w-full md:w-3/4 lg:w-4/5">
+        <section className="w-full">
             {error &&
                 <span className="text-2xl font-bold w-full h-full flex justify-center items-center text-gray-600 text-center">
                     {error}
