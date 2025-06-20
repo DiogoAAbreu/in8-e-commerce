@@ -1,4 +1,7 @@
-export default function ProductCart({ productsAddedToCart }) {
+import { useCartContext } from "../../hooks/useCartContext";
+
+export default function ProductCart() {
+    const { productsAddedToCart } = useCartContext();
     return (
         <div className="relative">
             <button onClick={() => console.log}
