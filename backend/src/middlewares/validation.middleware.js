@@ -7,11 +7,13 @@ export const validateOrderRequest = async (req, res, next) => {
         if (!items || !Array.isArray(items) || items.length === 0) {
             return res.status(400).json({ message: "O corpo da requisição deve conter um array 'items' com pelo menos um produto." });
         }
+
         for (const cartItem of items) {
             if (!cartItem.id || !cartItem.quantity || cartItem.quantity <= 0) {
                 return res.status(400).json({ message: `Item do carrinho inválido: ${JSON.stringify(cartItem)}` });
             }
         }
+
         const productPromises = items.map(item => fetchProductById(item.id));
         const fetchedProducts = await Promise.all(productPromises);
 
