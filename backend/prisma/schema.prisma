@@ -25,6 +25,11 @@ model OrderItem {
   name        String // "Snapshot" do nome do produto no momento da compra
   price       Int // "Snapshot" do preço no momento da compra
   quantity    Int
+  imageUrl    String
+  description String
+  material    String
+  adjective   String
+  origin      String
   order       Order   @relation(fields: [orderId], references: [id])
   orderId     String
 }
