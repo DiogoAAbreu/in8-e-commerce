@@ -1,12 +1,31 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useMemo, useState, useEffect } from "react";
 import { createOrder } from "../services/api";
+
+const CART_STORAGE_KEY = 'in8-e-commerce-cart';
 
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
-    const [productsAddedToCart, setProductsAddedToCart] = useState([]);
+    const [productsAddedToCart, setProductsAddedToCart] = useState(() => {
+        try {
+            const storedItems = window.localStorage.getItem(CART_STORAGE_KEY);
+            return storedItems ? JSON.parse(storedItems) : [];
+        } catch (error) {
+            console.error("Erro ao ler o carrinho do localStorage", error);
+            return [];
+        }
+    });
+
     const [isCheckingOut, setIsCheckingOut] = useState(false);
     const [checkoutError, setCheckoutError] = useState(null);
+
+    useEffect(() => {
+        try {
+            window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(productsAddedToCart));
+        } catch (error) {
+            console.error("Erro ao guardar o carrinho no localStorage", error);
+        }
+    }, [productsAddedToCart]);
 
     const addToCart = (product) => {
         setProductsAddedToCart(prevItems => {
