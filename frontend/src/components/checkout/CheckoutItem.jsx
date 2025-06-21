@@ -27,7 +27,7 @@ const CheckoutItem = ({ product }) => {
     }
 
     return (
-        <div className="flex items-center justify-between py-4 border-b">
+        <div className="flex items-center justify-between py-4 border-b border-b-gray-300">
             <div className="flex items-center space-x-4">
                 <img src={imageUrl} alt="Produto" className="w-20 h-20 object-cover rounded-md" />
                 <div>

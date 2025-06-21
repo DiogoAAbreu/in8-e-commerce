@@ -18,8 +18,7 @@ const OrderSumary = () => {
 
     return (
         <div className="bg-white p-6 rounded-lg shadow-sm sticky top-28">
-            <h2 className="text-xl font-bold mb-4 border-b pb-4">Total da Compra</h2>
-
+            <h2 className="text-xl font-bold mb-4 border-b border-b-gray-300 pb-4">Total da Compra</h2>
             <div className="space-y-2 my-4">
                 <div className="flex justify-between">
                     <span>Subtotal</span>
@@ -30,8 +29,7 @@ const OrderSumary = () => {
                     <span className="text-green-600 font-semibold">Grátis</span>
                 </div>
             </div>
-
-            <div className="flex justify-between font-bold text-2xl mt-4 border-t pt-4">
+            <div className="flex justify-between font-bold text-2xl mt-4 border-t border-t-gray-300 pt-4">
                 <span>Total</span>
                 <span>R$ {totalFormated}</span>
             </div>
