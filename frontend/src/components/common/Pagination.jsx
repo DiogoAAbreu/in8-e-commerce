@@ -1,7 +1,7 @@
-export default function Pagination({
+const Pagination = ({
     currentPage,
     totalPages,
-    setCurrentPage, }) {
+    setCurrentPage, }) => {
     const getPageNumbers = () => {
         const pages = [];
         const maxButtonsToShow = 5;
@@ -72,3 +72,5 @@ export default function Pagination({
         </nav>
     )
 }
+
+export default Pagination;

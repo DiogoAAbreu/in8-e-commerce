@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../hooks/useCartContext";
 import formatCurrency from "../../utils/formatCurrency";
 
-export default function ProductCard({ product }) {
+const ProductCard = ({ product }) => {
     const {
         id,
         name,
@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
     const formattedValue = formatCurrency(price);
     const formattedValueWithDiscount = formatCurrency(price, discountValue);
 
-    function handleClick() {
+    const handleClick = () => {
         const productToAdd = {
             ...product,
             quantity: 1
@@ -56,3 +56,5 @@ export default function ProductCard({ product }) {
         </div>
     )
 }
+
+export default ProductCard; 

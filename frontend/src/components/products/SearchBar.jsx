@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export default function SearchBar({
+const SearchBar = ({
     search,
     setSearch
-}) {
+}) => {
     const [inputValue, setInputValue] = useState('');
 
     const handleSearchSubmit = () => {
@@ -37,3 +37,5 @@ export default function SearchBar({
         </div>
     )
 }
+
+export default SearchBar;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function NotFoundPage() {
+const NotFoundPage = () => {
     return (
         <main className="pt-14">
             <div className="text-center">
@@ -25,3 +25,5 @@ export default function NotFoundPage() {
         </main>
     )
 }
+
+export default NotFoundPage;

@@ -1,4 +1,7 @@
-export default function Filter({ filterSelected, setFilterSelected }) {
+const Filter = ({
+    filterSelected,
+    setFilterSelected
+}) => {
     const handleOriginChange = (event) => {
         setFilterSelected(event.target.value);
     }
@@ -56,3 +59,5 @@ export default function Filter({ filterSelected, setFilterSelected }) {
         </aside>
     )
 }
+
+export default Filter;

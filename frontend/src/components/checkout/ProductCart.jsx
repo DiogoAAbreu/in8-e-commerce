@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../hooks/useCartContext";
 
-export default function ProductCart() {
+const ProductCart = () => {
     const { productsAddedToCart } = useCartContext();
     return (
         <div className="relative">
@@ -20,3 +20,5 @@ export default function ProductCart() {
         </div>
     )
 }
+
+export default ProductCart;

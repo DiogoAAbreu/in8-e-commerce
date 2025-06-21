@@ -5,7 +5,7 @@ const CART_STORAGE_KEY = 'in8-e-commerce-cart';
 
 export const CartContext = createContext();
 
-export function CartProvider({ children }) {
+export const CartProvider = ({ children }) => {
     const [productsAddedToCart, setProductsAddedToCart] = useState(() => {
         try {
             const storedItems = window.localStorage.getItem(CART_STORAGE_KEY);

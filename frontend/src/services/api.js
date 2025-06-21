@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
 });
 
-export function getProducts(page = 1, filter, search) {
+export const getProducts = (page = 1, filter, search) => {
     const params = {
         page: page,
     };

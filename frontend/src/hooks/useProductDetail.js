@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getProductById } from '../services/api';
 
-export function useProductDetail(productId) {
+export const useProductDetail = (productId) => {
     const [product, setProduct] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);

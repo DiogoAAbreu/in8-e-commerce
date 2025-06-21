@@ -5,7 +5,7 @@ import { useProductDetail } from "../hooks/useProductDetail";
 import Spinner from "../components/common/Spinner";
 import { useCartContext } from "../hooks/useCartContext";
 
-export default function ProductDetailPage() {
+const ProductDetailPage = () => {
 
     const { id } = useParams();
 
@@ -54,7 +54,7 @@ export default function ProductDetailPage() {
                             {product.hasDiscount &&
                                 <span className="px-3 py-1 text-sm font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                     Desconto 🏷️
-                                </span>}
+                                </span>}ProductDetailPage
                             <h1 className="text-4xl font-bold text-gray-800 mt-4">{product.name}</h1>
                             <div className="my-4">
                                 {product.hasDiscount &&
@@ -85,3 +85,5 @@ export default function ProductDetailPage() {
         </>
     )
 }
+
+export default ProductDetailPage;

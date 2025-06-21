@@ -1,4 +1,4 @@
-export default function formatCurrency(price, discount) {
+const formatCurrency = (price, discount) => {
     if (discount) {
         return String(((price - discount) / 100).toFixed(2)).replace('.', ',');
     }
@@ -6,3 +6,4 @@ export default function formatCurrency(price, discount) {
     return String((price / 100).toFixed(2)).replace('.', ',');
 }
 
+export default formatCurrency;

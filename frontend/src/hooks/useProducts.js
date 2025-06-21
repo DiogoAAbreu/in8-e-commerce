@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getProducts } from '../services/api';
 
-export function useProducts() {
+export const useProducts = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);

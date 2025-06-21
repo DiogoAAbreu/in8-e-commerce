@@ -1,7 +1,7 @@
 import Pagination from "../common/Pagination";
 import Spinner from "../common/Spinner";
 
-export default function ProductGrid({ children, isLoading, error }) {
+const ProductGrid = ({ children, isLoading, error }) => {
     return (
         <section className="w-full">
             {error &&
@@ -16,3 +16,5 @@ export default function ProductGrid({ children, isLoading, error }) {
         </section>
     )
 }
+
+export default ProductGrid;
