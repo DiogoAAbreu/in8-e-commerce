@@ -24,4 +24,11 @@ export const getProductById = (productId) => {
     return api.get(`/products/${productId}`);
 };
 
+export const createOrder = (orderItems) => {
+    const newOrder = {
+        items: orderItems
+    }
+    return api.post('/orders', newOrder);
+}
+
 export default api;
