@@ -3,12 +3,20 @@ import Header from "../components/common/Header";
 import formatCurrency from "../utils/formatCurrency";
 import { useProductDetail } from "../hooks/useProductDetail";
 import Spinner from "../components/common/Spinner";
+import { useCartContext } from "../hooks/useCartContext";
 
 export default function ProductDetailPage() {
 
     const { id } = useParams();
 
     const { product, isLoading, error } = useProductDetail(id);
+
+    const { addToCart } = useCartContext();
+
+    const handleClick = () => {
+        addToCart(product);
+    }
+
     return (
         <>
             <Header showSearch={false} />
@@ -66,7 +74,8 @@ export default function ProductDetailPage() {
                                 </ul>
                             </div>
                             <div className="mt-8">
-                                <button className="w-full md:w-auto px-10 py-4 bg-purple-600 text-white text-lg font-bold rounded-lg shadow-lg hover:bg-purple-700 transition-colors">
+                                <button onClick={handleClick}
+                                    className="w-full md:w-auto px-10 py-4 bg-purple-600 text-white text-lg font-bold rounded-lg shadow-lg hover:bg-purple-700 transition-colors cursor-pointer">
                                     Adicionar ao Carrinho
                                 </button>
                             </div>
