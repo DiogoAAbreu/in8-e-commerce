@@ -44,13 +44,11 @@ export function CartProvider({ children }) {
     const checkout = async () => {
         if (productsAddedToCart.length === 0 || isCheckingOut) return;
 
-
         try {
-            console.log('checkin true')
             setIsCheckingOut(true);
             setCheckoutError(null);
-            await new Promise(resolve => setTimeout(resolve, 5000));
-            const itemsToSubmit = productsAddedToCart.map(({ id, quantity }) => ({ id, quantity }));
+
+            const itemsToSubmit = productsAddedToCart.map(({ id, quantity, discountValue, hasDiscount }) => ({ id, quantity, discountValue, hasDiscount }));
             const response = await createOrder(itemsToSubmit);
             const newOrder = response.data;
 
@@ -75,6 +73,7 @@ export function CartProvider({ children }) {
         isCheckingOut,
         itemCount: productsAddedToCart.reduce((sum, item) => sum + item.quantity, 0),
         cartTotal: productsAddedToCart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+        discountTotal: productsAddedToCart.reduce((sum, item) => sum + item.discountValue, 0),
     }), [productsAddedToCart, isCheckingOut, checkoutError]);
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
