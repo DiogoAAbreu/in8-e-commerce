@@ -32,7 +32,7 @@ export default function SearchBar({
                     value={inputValue}
                     onKeyDown={handleKeyDown}
                     placeholder="Buscar produtos..."
-                    className="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    className="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-purple-500" />
             </div>
         </div>
     )

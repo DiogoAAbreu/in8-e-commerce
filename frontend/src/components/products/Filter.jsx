@@ -4,7 +4,7 @@ export default function Filter({ filterSelected, setFilterSelected }) {
     }
 
     return (
-        <aside className="w-full md:w-1/4 lg:w-1/5">
+        <aside className="w-full">
             <div className="bg-white p-6 rounded-lg shadow-sm">
                 <h2 className="text-xl font-bold mb-4">Filtros</h2>
                 <div>
