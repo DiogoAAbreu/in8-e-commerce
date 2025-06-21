@@ -23,6 +23,8 @@ export const createOrder = async (req, res) => {
                 description: productDetails.description,
                 material: productDetails.material,
                 adjective: productDetails.adjective,
+                hasDiscount: productDetails.hasDiscount,
+                discountValue: productDetails.discountValue,
                 origin: productDetails.origin,
             });
 
@@ -31,6 +33,7 @@ export const createOrder = async (req, res) => {
         const newOrder = await prisma.order.create({
             data: {
                 total: finalOrderTotal,
+                totalDiscount: orderItemsToCreate.reduce((sum, item) => sum + (item.discountValue * item.quantity), 0),
                 items: {
                     create: orderItemsToCreate,
                 },
