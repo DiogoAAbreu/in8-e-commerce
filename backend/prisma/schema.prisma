@@ -15,6 +15,7 @@ model Order {
   id        String      @id @default(cuid())
   createdAt DateTime    @default(now())
   total     Int
+  totalDiscount Int
   items     OrderItem[] // Um pedido tem vários itens
 }
 
@@ -29,6 +30,8 @@ model OrderItem {
   description String
   material    String
   adjective   String
+  hasDiscount   Boolean
+  discountValue Int
   origin      String
   order       Order   @relation(fields: [orderId], references: [id])
   orderId     String
