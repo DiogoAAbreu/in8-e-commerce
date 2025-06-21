@@ -37,8 +37,6 @@ export const getAllProducts = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("Erro no controller ao buscar produtos:", error);
-
         res.status(500).json({ message: "Erro interno ao buscar os produtos." });
     }
 };
@@ -54,8 +52,6 @@ export const getProductById = async (req, res) => {
             res.status(404).json({ message: "Produto não encontrado." });
         }
     } catch (error) {
-        console.error(`Erro no controller ao buscar produto com ID ${req.params.id}:`, error);
-
         res.status(500).json({ message: "Erro interno ao buscar o produto." });
     }
 };

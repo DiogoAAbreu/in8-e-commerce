@@ -19,10 +19,7 @@ export const useOrder = (orderId) => {
             const response = await getOrderById(orderId);
 
             setOrder(response.data);
-
-            console.log(response.data)
         } catch (error) {
-            console.error("Erro ao buscar detalhes do pedido:", error);
             setError("Erro ao buscar pedido. Tente novamente mais tarde.");
         } finally {
             setIsLoading(false);

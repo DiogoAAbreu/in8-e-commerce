@@ -11,7 +11,6 @@ export const CartProvider = ({ children }) => {
             const storedItems = window.localStorage.getItem(CART_STORAGE_KEY);
             return storedItems ? JSON.parse(storedItems) : [];
         } catch (error) {
-            console.error("Erro ao ler o carrinho do localStorage", error);
             return [];
         }
     });

@@ -19,7 +19,6 @@ export const useProductDetail = (productId) => {
 
             setProduct(response.data);
         } catch (err) {
-            console.error("Falha ao buscar detalhes do produto:", err);
             setError('Não foi possível detalhar este produto. Tente novamente mais tarde.');
         } finally {
             setIsLoading(false);

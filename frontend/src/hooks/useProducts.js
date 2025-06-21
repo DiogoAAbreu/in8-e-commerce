@@ -22,7 +22,6 @@ export const useProducts = () => {
             setTotalPages(response.data.totalPages);
             setTotalItems(response.data.totalItems);
         } catch (err) {
-            console.error("Falha ao buscar produtos:", err);
             setError("Não foi possível carregar os produtos. Tente novamente mais tarde.");
         } finally {
             setIsLoading(false);

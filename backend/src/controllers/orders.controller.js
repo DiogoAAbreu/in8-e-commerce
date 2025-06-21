@@ -45,7 +45,6 @@ export const createOrder = async (req, res) => {
 
         return res.status(201).json(newOrder);
     } catch (error) {
-        console.error("Erro ao criar o pedido:", error);
         return res.status(500).json({ message: "Erro interno ao processar o pedido." });
     }
 }
@@ -68,7 +67,6 @@ export const getOrderById = async (req, res) => {
 
         return res.status(200).json(order);
     } catch {
-        console.error(`Erro ao buscar pedido com ID ${req.params.orderId}:`, error);
         res.status(500).json({ message: "Erro interno ao buscar o pedido." });
     }
 }

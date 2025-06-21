@@ -41,8 +41,6 @@ export const fetchAllProducts = async () => {
 
         return [...brazilianProducts, ...europeanProducts];
     } catch (error) {
-        console.error("Erro ao buscar produtos dos fornecedores:", error);
-
         throw new Error('Falha ao buscar dados dos fornecedores.');
     }
 };
@@ -68,7 +66,6 @@ export const fetchProductById = async (compositeId) => {
         if (error.response && error.response.status === 404) {
             return null;
         }
-        console.error(`Erro ao buscar produto ${compositeId}:`, error);
 
         throw new Error('Falha ao buscar detalhes do produto.');
     }
