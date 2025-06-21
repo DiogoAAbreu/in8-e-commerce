@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom"
-import Header from "../components/common/Header"
 
 export default function NotFoundPage() {
     return (
         <main className="pt-14">
-            <div class="text-center">
-                <h1 class="text-9xl font-extrabold text-purple-600 tracking-wider">
+            <div className="text-center">
+                <h1 className="text-9xl font-extrabold text-purple-600 tracking-wider">
                     404
                 </h1>
-                <h2 class="mt-4 text-3xl font-bold text-gray-800">
+                <h2 className="mt-4 text-3xl font-bold text-gray-800">
                     Oops! Página não encontrada.
                 </h2>
-                <p class="mt-4 text-gray-500">
+                <p className="mt-4 text-gray-500">
                     Lamentamos, mas a página que você procura não existe ou foi movida.
                 </p>
                 <div className="mt-8">
