@@ -31,4 +31,8 @@ export const createOrder = (orderItems) => {
     return api.post('/orders', newOrder);
 }
 
+export const getOrderById = (orderId) => {
+    return api.get(`/orders/${orderId}`)
+}
+
 export default api;
