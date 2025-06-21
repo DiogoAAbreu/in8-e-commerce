@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { getOrderById } from "../services/api";
 
 export const useOrder = (orderId) => {
@@ -28,7 +29,7 @@ export const useOrder = (orderId) => {
 
     useEffect(() => {
         fetchOrder();
-    }, [fetchOrder]);
+    }, [orderId]);
 
     return { order, isLoading, error };
 }
