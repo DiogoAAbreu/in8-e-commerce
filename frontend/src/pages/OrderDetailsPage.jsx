@@ -70,7 +70,7 @@ const OrderDetailsPage = () => {
                         </div>
                         <div className="mt-10">
                             <Link to={'/'}>
-                                <button className="w-full inline-block px-8 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors">
+                                <button className="w-full inline-block px-8 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors cursor-pointer">
                                     Continuar a Comprar
                                 </button>
                             </Link>
