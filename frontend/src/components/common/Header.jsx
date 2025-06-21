@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProductCart from "../products/ProductCart";
+import ProductCart from "../checkout/ProductCart";
 import SearchBar from "../products/SearchBar";
 
 export default function Header({
