@@ -73,7 +73,7 @@ export function CartProvider({ children }) {
         isCheckingOut,
         itemCount: productsAddedToCart.reduce((sum, item) => sum + item.quantity, 0),
         cartTotal: productsAddedToCart.reduce((sum, item) => sum + item.price * item.quantity, 0),
-        discountTotal: productsAddedToCart.reduce((sum, item) => sum + item.discountValue, 0),
+        discountTotal: productsAddedToCart.reduce((sum, item) => sum + item.discountValue * item.quantity, 0),
     }), [productsAddedToCart, isCheckingOut, checkoutError]);
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
