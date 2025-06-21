@@ -104,3 +104,23 @@ Esta secção detalha algumas das principais decisões de arquitetura e tecnolog
 * **React Context API para Gestão de Estado Global:** Para gerir o estado do carrinho de compras, que precisa de ser acedido por múltiplos componentes (cards de produto, cabeçalho, página de checkout), usei a Context API do React. Isto evita o "prop drilling" e cria uma arquitetura limpa e escalável, onde um hook personalizado (`useCart`) centraliza toda a lógica de manipulação do carrinho.
 * **Persistência do Carrinho com `localStorage`:** Para melhorar a experiência do utilizador, o estado do carrinho de compras é guardado no `localStorage` do navegador. Isto garante que, se o utilizador recarregar a página, os itens que ele adicionou ao carrinho não sejam perdidos, criando uma experiência de compra mais fluida e contínua.
 * **Estrutura de Componentes e Hooks:** A aplicação foi estruturada com uma clara separação entre **páginas**, **componentes reutilizáveis** e **hooks personalizados**. Hooks como `useProducts` e `useOrderDetail` foram criados para isolar a lógica de busca e gestão de estado dos dados, deixando os componentes de página focados apenas na sua responsabilidade de apresentação.
+
+## 3. Tecnologias Utilizadas
+
+Abaixo estão as principais tecnologias e bibliotecas usadas neste projeto.
+
+### Backend
+* **Node.js:** Ambiente de execução para o JavaScript no servidor.
+* **Express.js:** Framework minimalista para a construção da API REST.
+* **Prisma:** ORM para a comunicação com o banco de dados e gestão das migrações.
+* **SQLite:** Banco de dados relacional baseado em ficheiro.
+* **Axios:** Cliente HTTP para fazer as requisições para as APIs externas.
+* **CORS:** Middleware para habilitar o Cross-Origin Resource Sharing.
+* **Dotenv:** Para a gestão de variáveis de ambiente.
+
+### Frontend
+* **React:** Biblioteca para a construção da interface do utilizador.
+* **Vite:** Ferramenta de build moderna para o ambiente de desenvolvimento.
+* **React Router DOM:** Para a gestão das rotas e navegação na aplicação.
+* **Tailwind CSS:** Framework CSS utility-first para a estilização.
+* **Axios:** Cliente HTTP para fazer as requisições para o backend.
