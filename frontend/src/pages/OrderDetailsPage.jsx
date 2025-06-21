@@ -10,7 +10,12 @@ const OrderDetailsPage = () => {
     const { id } = useParams();
     const { isLoading, order, error } = useOrder(id);
 
-    const formatedTotal = formatCurrency(order?.total);
+    const formatedSubtotal = formatCurrency(order?.total);
+
+    const formatedTotalDiscount = formatCurrency(order?.totalDiscount);
+
+    const formatedTotal = formatCurrency(order?.total - order?.totalDiscount);
+
     return (
         <>
             <Header showSearch={false} />
@@ -41,12 +46,22 @@ const OrderDetailsPage = () => {
                         <p className="text-gray-500 mt-2">Obrigado pela sua compra. O seu pedido será processado em breve.</p>
                         <div className="mt-8 bg-purple-50 border-2 border-dashed border-purple-200 rounded-lg p-4">
                             <p className="text-sm text-gray-600">Use este código para acompanhar o seu pedido:</p>
-                            <p className="text-2xl font-mono font-bold text-purple-800 tracking-wider mt-1">{order?.id}</p>
+                            <p className="text-2xl font-mono font-bold text-purple-800 tracking-wider mt-1">{order.id}</p>
                         </div>
                         <div className="text-left mt-8">
                             <h2 className="font-bold text-lg mb-4">Resumo da sua compra (3 itens):</h2>
                             <div className="space-y-4 max-h-60 overflow-y-auto pr-2">
-                                {order?.items.map(item => <OrderItem key={item.id} item={item} />)}
+                                {order.items.map(item => <OrderItem key={item.id} item={item} />)}
+                            </div>
+                        </div>
+                        <div className="text-md mt-6 border-t border-t-gray-300  pt-4">
+                            <div className="flex justify-between">
+                                <span>Subtotal:</span>
+                                <span>R$ {formatedSubtotal}</span>
+                            </div>
+                            <div className="flex justify-between mt-2 text-green-500">
+                                <span>Desconto total:</span>
+                                <span> - R$ {formatedTotalDiscount}</span>
                             </div>
                         </div>
                         <div className="flex justify-between font-bold text-xl mt-6 border-t border-t-gray-300  pt-4">
