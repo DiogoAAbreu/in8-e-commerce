@@ -46,3 +46,26 @@ export const createOrder = async (req, res) => {
         return res.status(500).json({ message: "Erro interno ao processar o pedido." });
     }
 }
+
+export const getOrderById = async (req, res) => {
+    try {
+        const { orderId } = req.params;
+
+        const order = await prisma.order.findUnique({
+            where: {
+                id: orderId,
+            }, include: {
+                items: true,
+            },
+        });
+
+        if (!order) {
+            return res.status(404).json({ message: "Pedido não encontrado." });
+        }
+
+        return res.status(200).json(order);
+    } catch {
+        console.error(`Erro ao buscar pedido com ID ${req.params.orderId}:`, error);
+        res.status(500).json({ message: "Erro interno ao buscar o pedido." });
+    }
+}
