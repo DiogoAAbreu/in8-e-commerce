@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Header from "../components/common/Header";
 import Filter from "../components/products/Filter";
 import ProductGrid from "../components/products/ProductGrid";
