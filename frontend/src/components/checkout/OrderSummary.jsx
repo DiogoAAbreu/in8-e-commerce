@@ -1,11 +1,21 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useCartContext } from "../../hooks/useCartContext";
 import formatCurrency from "../../utils/formatCurrency";
+import { useNavigate } from "react-router-dom";
 
 const OrderSumary = () => {
-    const { cartTotal } = useContext(CartContext);
+    const { cartTotal, checkout, isCheckingOut, checkoutError } = useCartContext();
 
     const totalFormated = formatCurrency(cartTotal);
+
+    const navigate = useNavigate();
+
+    const handleCheckout = async () => {
+        const newOrder = await checkout();
+        if (newOrder) {
+            navigate(`/order-details/${newOrder.id}`);
+        }
+    }
+
     return (
         <div className="bg-white p-6 rounded-lg shadow-sm sticky top-28">
             <h2 className="text-xl font-bold mb-4 border-b pb-4">Total da Compra</h2>
@@ -27,9 +37,13 @@ const OrderSumary = () => {
             </div>
             <div className="mt-6">
                 <button
+                    onClick={handleCheckout}
+                    disabled={isCheckingOut}
                     className="w-full bg-purple-600 text-white py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 disabled:bg-purple-300 transition-colors cursor-pointer">
                     Pagar Agora
                 </button>
+                {checkoutError &&
+                    <p className="text-center text-red-500 mt-4">{checkoutError}</p>}
             </div>
         </div>
     )

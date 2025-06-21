@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import formatCurrency from "../../utils/formatCurrency";
-import { CartContext } from "../../context/CartContext";
+import { useCartContext } from "../../hooks/useCartContext";
 
 const CheckoutItem = ({ product }) => {
     const {
@@ -11,7 +10,7 @@ const CheckoutItem = ({ product }) => {
         price,
     } = product;
 
-    const { removeFromCart, updateQuantity } = useContext(CartContext);
+    const { removeFromCart, updateQuantity } = useCartContext()
 
     const formatedPrice = formatCurrency(price * quantity);
 
