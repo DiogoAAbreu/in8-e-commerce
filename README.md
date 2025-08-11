@@ -1,6 +1,6 @@
-# Teste Técnico Devnology - Solução de E-commerce Fullstack
+# Solução de E-commerce Fullstack
 
-Este repositório contém a solução desenvolvida para o teste técnico de desenvolvedor(a) fullstack da Devnology. O projeto consiste numa plataforma de e-commerce completa, que integra produtos de duas APIs externas distintas, permitindo ao utilizador pesquisar, filtrar, adicionar itens a um carrinho e finalizar a compra com persistência de dados.
+O projeto consiste numa plataforma de e-commerce completa, que integra produtos de duas APIs externas distintas, permitindo ao utilizador pesquisar, filtrar, adicionar itens a um carrinho e finalizar a compra com persistência de dados.
 
 ## 1. Como Rodar o Projeto
 
